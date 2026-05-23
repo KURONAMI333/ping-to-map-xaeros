@@ -1,0 +1,51 @@
+# Ping to Map: Xaero's Minimap & Ping Wheel Addon - mods.toml
+modLoader="javafml"
+loaderVersion="${loader_version_range}"
+
+license="${mod_license}"
+
+[[mods]]
+modId="${mod_id}"
+version="${mod_version}"
+displayName="${mod_name}"
+authors="KURONAMI"
+displayURL="https://github.com/KURONAMI333/ping-to-map-xaeros"
+issueTrackerURL="https://github.com/KURONAMI333/ping-to-map-xaeros/issues"
+side="CLIENT"
+description='''
+Pop a temporary Xaero's Minimap waypoint when a teammate (or yourself) pings a location with Ping-Wheel. Client-side only — no server install needed. Internal Xaero API is accessed via reflection (silent fallback if Xaero is absent).
+'''
+
+# Mixin 設定: PingManager.acceptPingPacket をフックして Xaero internal API へ転送
+[[mixins]]
+config="pingtomapxaeros.mixins.json"
+
+# ─────────────────────────────────────────────────
+# 必須依存
+# ─────────────────────────────────────────────────
+[[dependencies.${mod_id}]]
+    modId="neoforge"
+    type="required"
+    versionRange="[21.1,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.${mod_id}]]
+    modId="minecraft"
+    type="required"
+    versionRange="${minecraft_version_range}"
+    ordering="NONE"
+    side="BOTH"
+
+# Ping-Wheel: Mixin ターゲットのホスト (CLIENT で動作する)
+# versionRange は緩く取り、Mixin 不一致時は Mixin システム自体がエラーを吐く想定。
+[[dependencies.${mod_id}]]
+    modId="pingwheel"
+    type="required"
+    versionRange="[0,)"
+    ordering="AFTER"
+    side="CLIENT"
+
+# Xaero's Minimap / World Map: 依存宣言不要 (xaero-waypoint: チャット書式を local
+# chat に流すだけなので Xaero 側 mod の有無を本 MOD は気にしない。
+# 入っていれば「Add to waypoints?」プロンプトが出る、入っていなくても害は無い)
