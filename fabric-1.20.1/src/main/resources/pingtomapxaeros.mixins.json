@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "package": "com.kuronami.pingtomapxaeros.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "minVersion": "0.8",
+  "client": [
+    "PingManagerMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
