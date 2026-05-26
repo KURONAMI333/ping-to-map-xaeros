@@ -22,7 +22,7 @@
 - [ ] **ping 距離フィルタ** (一定距離以上の ping は waypoint 化しない)
 - [ ] **発信元プレイヤーごとの ON/OFF** (チームメイト全員は ON、特定プレイヤーだけ無視 等)
 - [ ] **Reflection cache** (毎 ping ごとに `Class.forName` を呼ばない、起動時 lazy init)
-- [ ] **silent fail の初回 1 回 LOGGER.warn** (公開後の issue triage コスト削減)
+- [x] ~~**silent fail の初回 1 回 LOGGER.warn** (公開後の issue triage コスト削減)~~ → **v0.1.1 で前倒し実装済** (`XaeroReflect#warnApiDriftOnce`、`isXaeroPresent` で Xaero 不在時は黙る、`AtomicBoolean` で once-only、5 catch 全てで呼出)
 
 ## 🚀 Phase 3: 公開・コミュニティ
 
