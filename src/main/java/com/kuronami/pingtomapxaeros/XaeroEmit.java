@@ -14,7 +14,8 @@ import java.util.UUID;
  * <p>JM 版 P2M と同じ UX 仕様:
  * <ul>
  *   <li>「ping した瞬間に副次的に waypoint が立つ」 — UI 介入なし</li>
- *   <li>「30 秒で自動消滅」 — {@link Config#WAYPOINT_LIFETIME_SEC}</li>
+ *   <li>「ping と同時に自動消滅」 — 既定で Ping-Wheel の pingDuration に同期 ({@link #resolveLifetimeSec})、
+ *       同期 OFF 時は {@link Config#WAYPOINT_LIFETIME_SEC}</li>
  *   <li>「マルチプレイヤーでチーム共有」 — Ping-Wheel が S2C で全クライアントに配信する構造のため、
  *       本実装は各クライアントで個別に一時 waypoint を立てるだけで自然に共有される</li>
  * </ul>
@@ -70,9 +71,29 @@ public final class XaeroEmit {
         // WaypointSet に先頭挿入 (新しい ping waypoint が waypoint list の上に見えるように)
         if (!XaeroReflect.addWaypoint(waypointSet, waypoint, true)) return;
 
-        // 寿命管理に登録: lifetimeSec 秒後に自動削除
-        int lifetimeSec = Config.WAYPOINT_LIFETIME_SEC.get();
+        // 寿命管理に登録: Ping-Wheel のピン表示時間に同期するのが既定 → 同時に消える
+        int lifetimeSec = resolveLifetimeSec();
         PingWaypointTracker.schedule(authorUuid, waypoint, waypointSet, lifetimeSec);
+    }
+
+    /**
+     * waypoint の寿命 (秒) を決める。{@code syncWithPingWheel} が ON (既定) なら
+     * Ping-Wheel の {@code pingDuration} に追従し、ワールド内の ping と waypoint が
+     * 同時に消える。Ping-Wheel は pingDuration が 60 以上だと ping を永続扱いにする
+     * ({@code PingView.isExpired} が {@code pingDuration < 60} を条件にしている) ので、
+     * その場合は -1 (永続) を返して同期を保つ。同期 OFF か config 読み取り失敗時は
+     * 手動の {@code waypointLifetimeSec} にフォールバック。
+     */
+    private static int resolveLifetimeSec() {
+        if (Config.SYNC_WITH_PING_WHEEL.get()) {
+            try {
+                int pingDuration = nx.pingwheel.common.config.ClientConfig.HANDLER.getConfig().getPingDuration();
+                return pingDuration >= 60 ? -1 : pingDuration;
+            } catch (Throwable t) {
+                PingToMapXaeros.LOGGER.debug("Ping-Wheel pingDuration を読めず手動寿命にフォールバック: {}", t.toString());
+            }
+        }
+        return Config.WAYPOINT_LIFETIME_SEC.get();
     }
 
     /**

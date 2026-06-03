@@ -3,6 +3,11 @@
 All notable changes to Ping to Map: Xaero's edition will be documented in this file.
 Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) — [Semver](https://semver.org/)
 
+## [1.1.0] - 2026-06-03
+
+### Changed
+- 全 loader (NeoForge / Forge / Fabric × 1.21.1 / 1.20.1) で waypoint 寿命を **Ping-Wheel の pingDuration に同期** (`appearance.syncWithPingWheel`, 既定 ON)。ワールド内の ping と Xaero's マップ上の waypoint が同時に消える。pingDuration ≥ 60 の永続ピンにも追従。OFF にすると固定 `appearance.waypointLifetimeSec` を使用。
+
 ## [0.1.0] - YYYY-MM-DD (未公開 / MVP)
 
 ### Added
