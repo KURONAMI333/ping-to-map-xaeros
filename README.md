@@ -1,6 +1,6 @@
 # Ping to Map: Xaero's Minimap & Ping Wheel Addon
 
-> Ping-Wheel で打った ping を、Xaero's Minimap に**一時 waypoint**として副次的に立てる。プロンプトなし、30 秒で自動消滅、チームメイト全員に見える。
+> Ping-Wheel で打った ping を、Xaero's Minimap に**一時 waypoint**として副次的に立てる。プロンプトなし、Ping-Wheel のピンと同時に自動消滅、チームメイト全員に見える。
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Modrinth](https://img.shields.io/badge/Modrinth-ping--to--map--xaeros-00AF5C)](https://modrinth.com/mod/ping-to-map-xaeros)
@@ -22,10 +22,10 @@ NeoForge は 1.20.1 リリース無し。
 ## なにをするやつ?
 
 Ping-Wheel で「あそこ来て！」って ping を打っても、**地図上には載らない**から大きい施設だと結局見つけにくい。
-このアドオン MOD は **ping した瞬間に Xaero's Minimap に一時 waypoint を立てる**。プロンプトも編集画面も出ない、副次的に静かに waypoint が現れる。30 秒で自動消滅するから地図が散らからない。
+このアドオン MOD は **ping した瞬間に Xaero's Minimap に一時 waypoint を立てる**。プロンプトも編集画面も出ない、副次的に静かに waypoint が現れる。Ping-Wheel のピン表示時間に同期して消えるから（既定）地図が散らからない。
 
 - 📍 **Ping した瞬間に Xaero's に一時 waypoint** — プロンプト無し、UI 介入ゼロ
-- 🕒 **30 秒で自動消滅** — 寿命は Config で 1〜600 秒に調整可
+- 🕒 **ピンと同時に自動消滅** — 既定で Ping-Wheel の pingDuration に同期（Config で固定 1〜600 秒にも調整可）
 - 🤝 **マルチプレイで自然共有** — Ping-Wheel が S2C で全クライアントに ping を配信、本 MOD は各クライアントで個別に一時 waypoint を立てる
 - 🌐 **クライアント MOD のみ** — サーバ側に入れる必要なし
 - 🛟 **Xaero's 不在でも crash しない** — 何も起きないだけ (silent fail)
@@ -46,7 +46,7 @@ xaero.hud.minimap.BuiltInHudModules.MINIMAP
   → Waypoint オブジェクトを直接構築して add
 ```
 
-寿命管理は自前 (`PingWaypointTracker`)。`System.nanoTime()` ベースで 30 秒経過したら同 Reflection 経路で `WaypointSet.remove(wp)` を呼ぶ。同じプレイヤーが連続 ping した時は古い waypoint を即削除して新しいだけ残す。
+寿命管理は自前 (`PingWaypointTracker`)。`System.nanoTime()` ベースで寿命（既定で Ping-Wheel の pingDuration に同期）経過後に同 Reflection 経路で `WaypointSet.remove(wp)` を呼ぶ。同じプレイヤーが連続 ping した時は古い waypoint を即削除して新しいだけ残す。
 
 Xaero's に何の参照も持たない (compileOnly すらしない)。Reflection で全例外を catch するので Xaero's 不在 / API 不一致 / セッション未起動なら silent fail で何もしない。Ping-Wheel 本来の挙動は絶対に止めない (`@Inject(at=HEAD)` で `ci.cancel()` しない)。
 
