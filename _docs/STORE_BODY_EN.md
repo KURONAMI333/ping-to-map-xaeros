@@ -1,15 +1,21 @@
 # Ping to Map: Xaero's edition
 
-Drops a temporary Xaero's Minimap waypoint the instant a teammate (or you) pings a spot with Ping-Wheel — no prompt, no edit screen, and it auto-expires after 30 seconds.
+Drops a temporary Xaero's Minimap waypoint the instant a teammate (or you) pings a spot with Ping-Wheel — no prompt, no edit screen, and by default it disappears together with the ping.
 
 You ping "come here" with Ping-Wheel, but it never shows on the map, so on big builds people still can't find the spot. This addon puts a waypoint on Xaero's the moment a ping happens, then clears it so the map stays clean.
 
 **Features**
 
 - A temporary waypoint on every ping — no clicks, no edit screen
-- Auto-expires after 30 s (configurable 1–600 s)
+- By default the waypoint expires in sync with the Ping-Wheel ping — they vanish together (or set a fixed 1–600 s, or make it permanent)
 - Team-share — Ping-Wheel broadcasts pings to teammates, and each client creates the waypoint locally
 - No items or blocks; it never interrupts Ping-Wheel's own behaviour, and won't crash if Xaero's is absent (it reaches Xaero's by reflection that no-ops on absence or an API change)
+
+**Config** (`config/pingtomapxaeros-client.toml`, or the Mod Config GUI)
+
+- `appearance.syncWithPingWheel` — waypoint vanishes together with the ping, its lifetime following the ping's (default on)
+- `appearance.waypointLifetimeSec` — fixed lifetime in seconds, used only when sync is off (-1 = permanent)
+- `feature.registerOwnPings` — also waypoint your own pings (false = teammates' only)
 
 **Dependencies**
 
