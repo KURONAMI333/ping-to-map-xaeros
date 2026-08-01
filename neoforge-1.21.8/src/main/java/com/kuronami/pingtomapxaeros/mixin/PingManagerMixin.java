@@ -39,7 +39,8 @@ public abstract class PingManagerMixin {
 
     @Inject(
             method = "acceptPingPacket",
-            at = @At("HEAD")
+            at = @At("HEAD"),
+            require = 0
     )
     private static void pingtomapxaeros$onPingReceived(PingLocationS2CPacket packet, CallbackInfo ci) {
         try {
