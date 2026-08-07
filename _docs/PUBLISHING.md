@@ -34,7 +34,7 @@ Modrinth / CurseForge への公開・更新手順。
 
 - [ ] `displayURL` / `issueTrackerURL` が `github.com/KURONAMI333/ping-to-map-xaeros`
 - [ ] `description` が実装と整合 (古い "chat-share" 記述が残ってないこと)
-- [ ] `authors=KURONAMI` / `license=MIT`
+- [ ] `authors=KURONAMI` / `license=All Rights Reserved`
 
 ---
 
@@ -49,7 +49,7 @@ Modrinth / CurseForge への公開・更新手順。
 | Environment | **Client only**（サーバ不要） |
 | 依存 | **Ping-Wheel（必須）** / Xaero's Minimap or World Map（任意・推奨、CLIENT のみ） / Fabric は FCAP も |
 | 既知制限 | NeoForge 1.20.1 は存在しない (NeoForge 自体が 1.21+) |
-| License | MIT |
+| License | All Rights Reserved |
 
 > Description 本文は `_docs/STORE_BODY_EN.md` をそのままコピペ（Modrinth は Markdown 可、CurseForge は WYSIWYG → Markdown モードに切り替えてからペースト）。jar 実ファイル名は `pingtomapxaeros-<version>.jar`（ローダー/MC はストアのタグで区別、ファイル名に接尾辞は付かない）。
 

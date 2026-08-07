@@ -2,7 +2,7 @@
 
 > Ping-Wheel で打った ping を、Xaero's Minimap に**一時 waypoint**として副次的に立てる。プロンプトなし、Ping-Wheel のピンと同時に自動消滅、チームメイト全員に見える。
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![License: All Rights Reserved](https://img.shields.io/badge/License-All%20Rights%20Reserved-lightgrey.svg)](LICENSE)
 [![Modrinth](https://img.shields.io/badge/Modrinth-ping--to--map--xaeros-00AF5C)](https://modrinth.com/mod/ping-to-map-xaeros)
 [![CurseForge](https://img.shields.io/badge/CurseForge-ping--to--map--xaeros-F16436)](https://www.curseforge.com/minecraft/mc-mods/ping-to-map-xaeros)
 
@@ -111,7 +111,7 @@ A. 仕様で「ping = 一時的な位置共有」を再現してます。寿命�
 
 ## License
 
-[MIT License](LICENSE)
+[All Rights Reserved](LICENSE)
 
 ---
 

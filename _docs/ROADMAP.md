@@ -12,7 +12,7 @@
 - [x] **try-catch で Ping-Wheel 本来の処理を絶対に止めない**
 - [x] **silent fail**: Xaero 不在 / API 不一致は全 catch で吸収、crash しない
 - [x] Config: `feature.enabled` / `feature.registerOwnPings` / `appearance.waypointLifetimeSec`
-- [x] LICENSE (MIT) を jar 同梱
+- [x] LICENSE (All Rights Reserved) を jar 同梱
 - [x] **マルチローダー対応**: NeoForge 1.21.1 / Forge 1.21.1 / Forge 1.20.1 / Fabric 1.21.1 / Fabric 1.20.1
 
 ## 🔮 Phase 2: UX 改善
@@ -43,4 +43,4 @@
 | `System.nanoTime()` で寿命管理 | `System.currentTimeMillis` は NTP 時計ジャンプで影響を受ける。`nanoTime()` は monotonic で安全 |
 | 単色 (Xaero PURPLE) | Xaero's の既存色と被らない識別マーカー。Phase 2 でチームカラー対応予定 |
 | CLIENT 専用 (`dist = CLIENT`) | Ping-Wheel のクライアント側 packet handler をフックするのみ。サーバ側で動かす必要なし |
-| MIT ライセンス | modpack 採用しやすい |
+| All Rights Reserved (modpack 同梱は許可) | modpack 採用しやすい |
