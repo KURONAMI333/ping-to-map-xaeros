@@ -1,5 +1,3 @@
-# Ping to Map: Xaero's edition
-
 Drops a temporary Xaero's Minimap waypoint the instant a teammate (or you) pings a spot with Ping-Wheel — no prompt, no edit screen, and by default it disappears together with the ping.
 
 You ping "come here" with Ping-Wheel, but it never shows on the map, so on big builds people still can't find the spot. This addon puts a waypoint on Xaero's the moment a ping happens, then clears it so the map stays clean.
@@ -23,6 +21,8 @@ You ping "come here" with Ping-Wheel, but it never shows on the map, so on big b
 - [Xaero's Minimap](https://modrinth.com/mod/xaeros-minimap) and/or [Xaero's World Map](https://modrinth.com/mod/xaeros-world-map) (client) — the waypoint target
 - Fabric only: [Forge Config API Port](https://modrinth.com/mod/forge-config-api-port)
 
-Client-side only — no server install needed. Companion mod: Compass to Map: Xaero's edition.
+Companion mod: Compass to Map: Xaero's edition.
 
-Free to use in any modpack. Source and issues: https://github.com/KURONAMI333/ping-to-map-xaeros
+Bugs and questions: comment on the CurseForge page, or DM @kuronami333 on X.
+
+All Rights Reserved. Modpack inclusion is allowed without permission or credit. Source: https://github.com/KURONAMI333/ping-to-map-xaeros
