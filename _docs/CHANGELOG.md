@@ -3,6 +3,15 @@
 All notable changes to Ping to Map: Xaero's edition will be documented in this file.
 Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) — [Semver](https://semver.org/)
 
+## [1.1.1] - 2026-09-07
+
+### Fixed
+- **Ping-Wheel が内部の実装を変えるとクライアントが起動しなくなる可能性を潰した**。Ping-Wheel には公開 API が無く `acceptPingPacket` を Mixin で掴んでいる。`require` を指定していなかったため、上流が署名を変えた時点で injection が失敗し、mixin config の `defaultRequire = 1` に当たって起動が止まる状態だった。`require = 0` を指定して、掴めなかった時は連携が黙って無効になるだけにした
+
+### Changed
+- MOD 一覧に出る配布元と、不具合の報告先を **CurseForge** に変更（従来は GitHub）。Xaero's の API が変わった時にログへ出す案内も同じ宛先にした。ソースへのリンクは GitHub のまま
+- 同梱ライセンスを MIT から All Rights Reserved に変更（配布ページの表記に合わせた）
+
 ## [1.1.0] - 2026-06-03
 
 ### Changed

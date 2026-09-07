@@ -8,8 +8,8 @@ modId="${mod_id}"
 version="${mod_version}"
 displayName="${mod_name}"
 authors="${mod_authors}"
-displayURL="https://github.com/KURONAMI333/ping-to-map-xaeros"
-issueTrackerURL="https://github.com/KURONAMI333/ping-to-map-xaeros/issues"
+displayURL="https://www.curseforge.com/minecraft/mc-mods/ping-to-map-xaeros"
+issueTrackerURL="https://www.curseforge.com/minecraft/mc-mods/ping-to-map-xaeros/comments"
 side="CLIENT"
 description='''
 ${mod_description}
