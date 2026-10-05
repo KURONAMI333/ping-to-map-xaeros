@@ -48,3 +48,7 @@ Downloads: [CurseForge](https://www.curseforge.com/minecraft/mc-mods/ping-to-map
 For bugs and questions, comment on the [CurseForge page](https://www.curseforge.com/minecraft/mc-mods/ping-to-map-xaeros) or DM [@kuronami333 on X](https://x.com/kuronami333).
 
 [Source](https://github.com/KURONAMI333/ping-to-map-xaeros) · [License](LICENSE)
+
+## Download filenames
+
+From version 1.1.2, release files use `ping-to-map-xaero-<minecraft>-<loader>-<modversion>.jar`, for example `ping-to-map-xaero-1.21.1-neoforge-1.1.2.jar`.

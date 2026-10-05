@@ -5,6 +5,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) — [Semver](ht
 
 ## v1.1.2 - Unreleased
 
+- Use the same release filename format for both map editions: `ping-to-map-<journeymap|xaero>-<minecraft>-<loader>-<modversion>.jar`.
 ### Fixed
 - Ignore pings from another dimension and pings rejected by Ping-Wheel's channel, distance or packet checks.
 - Keep the author name when a teammate is outside entity tracking range.
