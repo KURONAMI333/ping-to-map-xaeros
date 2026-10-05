@@ -3,6 +3,13 @@
 All notable changes to Ping to Map: Xaero's edition will be documented in this file.
 Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) — [Semver](https://semver.org/)
 
+## v1.1.2 - Unreleased
+
+### Fixed
+- Ignore pings from another dimension and pings rejected by Ping-Wheel's channel, distance or packet checks.
+- Keep the author name when a teammate is outside entity tracking range.
+- Clarify the automatic waypoint setting and the need for Xaero's Minimap; World Map can be used alongside it.
+
 ## [1.1.1] - 2026-09-07
 
 ### Fixed

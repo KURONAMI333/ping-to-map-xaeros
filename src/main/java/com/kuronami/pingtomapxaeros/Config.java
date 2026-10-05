@@ -8,16 +8,14 @@ import net.neoforged.neoforge.common.ModConfigSpec;
  * <p>本 MOD は Ping-Wheel のクライアントサイド処理を Mixin でフックするため
  * 設定はすべて CLIENT 側に置く。
  *
- * <p>NOTE: Xaero's の chat-share 経路では「waypoint の色」「lifetime」は
- * Xaero's の UI 側で決まる（プロンプトに対しユーザーが「Add」を押した時点で
- * Xaero's の通常 waypoint として登録される）。よって本 MOD 側ではそれらの
- * 設定は持たない。
+ * <p>Xaero's Minimap の現在の waypoint set へ自動登録し、寿命は本 MOD が管理する。
+ * World Map は併用できるが、Minimap が無いと登録先を取得できない。
  */
 public final class Config {
     private static final ModConfigSpec.Builder B = new ModConfigSpec.Builder();
 
     public static final ModConfigSpec.BooleanValue ENABLED = B
-            .comment("Master switch. If false, no waypoint prompts are emitted on ping.")
+            .comment("Master switch. If false, no waypoint is auto-created on ping.")
             .define("feature.enabled", true);
 
     public static final ModConfigSpec.BooleanValue REGISTER_OWN_PINGS = B

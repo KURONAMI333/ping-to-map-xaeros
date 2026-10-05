@@ -52,6 +52,16 @@ minecraft {
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
+    // Mojang が配る macOS freetype patch は Maven Central の同版には無い。
+    exclusiveContent {
+        forRepository {
+            maven {
+                name = "Mojang freetype"
+                url = "https://libraries.minecraft.net"
+            }
+        }
+        filter { includeModule("org.lwjgl", "lwjgl-freetype") }
+    }
     maven {
         name = "Modrinth"
         url = "https://api.modrinth.com/maven"
@@ -60,6 +70,7 @@ repositories {
     maven {
         name = 'ParchmentMC'
         url = 'https://maven.parchmentmc.org'
+        content { includeGroup 'org.parchmentmc.data' }
     }
 }
 

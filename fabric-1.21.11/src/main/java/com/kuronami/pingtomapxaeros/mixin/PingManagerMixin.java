@@ -54,7 +54,13 @@ public abstract class PingManagerMixin {
                     if (!Config.ENABLED.get()) return;
 
                     Minecraft mc = Minecraft.getInstance();
-                    if (mc == null || mc.level == null) return;
+                    if (packet.isCorrupt() || mc.player == null
+                            || mc.level == null || mc.getConnection() == null) return;
+                    var pingConfig = nx.pingwheel.common.config.ClientConfig.HANDLER.getConfig();
+                    if (!packet.channel().equals(pingConfig.getChannel())) return;
+                    if (pingConfig.getPingDistance() < nx.pingwheel.common.config.ClientConfig.MAX_PING_DISTANCE
+                            && mc.player.position().distanceTo(pos) > pingConfig.getPingDistance()) return;
+                    if (packet.dimension() != mc.level.dimension().identifier().hashCode()) return;
 
                     // registerOwnPings=false の時は自分の ping を無視する。
                     if (!Config.REGISTER_OWN_PINGS.get()

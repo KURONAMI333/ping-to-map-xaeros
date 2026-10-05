@@ -20,7 +20,7 @@ You ping "come here" with Ping-Wheel, but it never shows on the map, so on big b
 **Dependencies**
 
 - [Ping-Wheel](https://modrinth.com/mod/ping-wheel) — required
-- [Xaero's Minimap](https://modrinth.com/mod/xaeros-minimap) and/or [Xaero's World Map](https://modrinth.com/mod/xaeros-world-map) (client) — the waypoint target
+- [Xaero's Minimap](https://modrinth.com/mod/xaeros-minimap) (client) — required to create waypoints. [Xaero's World Map](https://modrinth.com/mod/xaeros-world-map) can be used alongside it; World Map alone is not a waypoint target for this addon.
 - Fabric only: [Forge Config API Port](https://modrinth.com/mod/forge-config-api-port)
 
 Companion mod: Compass to Map: Xaero's edition.

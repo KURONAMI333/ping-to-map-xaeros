@@ -9,7 +9,7 @@ public final class Config {
     private static final ForgeConfigSpec.Builder B = new ForgeConfigSpec.Builder();
 
     public static final ForgeConfigSpec.BooleanValue ENABLED = B
-            .comment("Master switch. If false, no waypoint prompts are emitted on ping.")
+            .comment("Master switch. If false, no waypoint is auto-created on ping.")
             .define("feature.enabled", true);
 
     public static final ForgeConfigSpec.BooleanValue REGISTER_OWN_PINGS = B

@@ -41,7 +41,7 @@ public final class XaeroEmit {
      *
      * @param authorUuid ping を打ったプレイヤー UUID
      * @param pos        ping 位置
-     * @param dim        ping が発生したディメンション（現状は使ってないが将来の dim 固有処理用に保持）
+     * @param dim        Mixin で packet 次元との一致を確認した現在のディメンション
      */
     public static void emit(UUID authorUuid, Vec3 pos, ResourceKey<Level> dim) {
         Minecraft mc = Minecraft.getInstance();
@@ -106,13 +106,14 @@ public final class XaeroEmit {
      * <p>UUID 解決に失敗した時のみ {@code "Player"} にフォールバック。
      */
     private static String resolveAuthorName(Minecraft mc, UUID id) {
-        if (mc.level == null) return "Player";
-        // 自分の場合
         if (mc.player != null && mc.player.getUUID().equals(id)) {
             return mc.player.getGameProfile().name();
         }
-        // 他人の場合
-        if (mc.level.getPlayerByUUID(id) instanceof AbstractClientPlayer p) {
+        if (mc.getConnection() != null) {
+            net.minecraft.client.multiplayer.PlayerInfo info = mc.getConnection().getPlayerInfo(id);
+            if (info != null) return info.getProfile().name();
+        }
+        if (mc.level != null && mc.level.getPlayerByUUID(id) instanceof AbstractClientPlayer p) {
             return p.getGameProfile().name();
         }
         return "Player";
