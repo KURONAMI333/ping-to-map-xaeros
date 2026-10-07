@@ -51,4 +51,4 @@ For bugs and questions, comment on the [CurseForge page](https://www.curseforge.
 
 ## Download filenames
 
-From version 1.1.2, release files use `ping-to-map-xaero-<minecraft>-<loader>-<modversion>.jar`, for example `ping-to-map-xaero-1.21.1-neoforge-1.1.2.jar`.
+From version 1.1.2, release files use `ping-to-map-xaero-<modversion>+<loader>-<minecraft>.jar`, for example `ping-to-map-xaero-1.1.2+neoforge-1.21.1.jar`.
