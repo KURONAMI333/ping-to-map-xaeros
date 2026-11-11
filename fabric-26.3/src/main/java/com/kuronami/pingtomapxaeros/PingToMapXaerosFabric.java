@@ -11,7 +11,7 @@ import net.neoforged.fml.config.ModConfig;
 import org.slf4j.Logger;
 
 /**
- * Ping to Map: Xaero's edition - Fabric 1.21.1 entry (CLIENT only)。
+ * Ping to Map: Xaero's edition - Fabric 26.3 entry (CLIENT only)。
  *
  * <p>Mixin 経由で Ping-Wheel の {@code PingManager.acceptPingPacket} をフック。
  * Tick / disconnect イベントは Fabric API 経由で {@link PingWaypointTracker} に委譲。
@@ -30,6 +30,6 @@ public class PingToMapXaerosFabric implements ClientModInitializer {
         ClientTickEvents.END_CLIENT_TICK.register(mc -> PingWaypointTracker.onClientTick());
         ClientPlayConnectionEvents.DISCONNECT.register((handler, mc) -> PingWaypointTracker.clearAll());
 
-        LOGGER.info("Ping to Map: Xaero's edition (Fabric 1.21.1) initialized");
+        LOGGER.info("Ping to Map: Xaero's edition (Fabric 26.3) initialized");
     }
 }
